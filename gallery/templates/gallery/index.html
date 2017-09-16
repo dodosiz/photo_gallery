@@ -1,0 +1,59 @@
+<!doctype HTML>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>X-Andra Photo</title>
+        {% load static %}
+        <link rel="stylesheet" href="{% static 'gallery/css/bootstrap.min.css' %}" >
+        <link rel="stylesheet" href="{% static 'gallery/css/custom.css' %}" >
+    </head>
+    <body>
+
+        <!-- Navigation -->
+        <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+          <div class="container">
+            <a class="navbar-brand" href="/gallery/">X-Andra Photography</a>
+          </div>
+        </nav>
+
+        <div class="welcome">
+            <h1 class="my-4 text-center text-lg-left">X-Andra photo gallery</h1>
+            <p class="my-4 text-center text-lg-left">Welcome to our gallery website</p>
+        </div>
+        <!-- Main Section -->
+        <div class="container indexContent">
+
+            {% if topics %}
+                 <div class="container">
+                    {% for list_of_topic in list_of_topics %}
+                        <div class="row">
+                          {% for topic in list_of_topic %}
+                            <div class="col" id="{{topic.id}}">
+                                <button onclick="location.href='/gallery/{{ topic.name }}';" type="button" class="btn btn-light" data-toggle="button" aria-pressed="false" autocomplete="off">
+                                    {{ topic.name }}
+                                </button>
+                            </div>
+                          {% endfor %}
+                      </div>
+                    {% endfor %}
+                 </div>
+            {% else %}
+                <p>No topics yet.</p>
+            {% endif %}
+        </div>
+
+         <!-- Footer -->
+        <footer class="py-5 bg-light">
+          <div class="container">
+            <p class="m-0 text-center">Copyright &copy; X-Andra 2017</p>
+          </div>
+          <!-- /.container -->
+        </footer>
+
+        <script src="{% static 'gallery/js/jquery.min.js' %}"></script>
+        <script src="{% static 'gallery/js/popper.min.js' %}"></script>
+        <script src="{% static 'gallery/js/bootstrap.min.js' %}"></script>
+        <script src="{% static 'gallery/js/custom.js' %}"></script>
+    </body>
+</html>

@@ -1,0 +1,42 @@
+<!doctype HTML>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>X-Andra Photo</title>
+        {% load static %}
+        <link rel="stylesheet" href="{% static 'gallery/css/bootstrap.min.css' %}" >
+        <link rel="stylesheet" href="{% static 'gallery/css/custom.css' %}" >
+    </head>
+    <body>
+
+        <!-- Navigation -->
+        <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+          <div class="container">
+            <a class="navbar-brand" href="/gallery/">X-Andra Photography</a>
+          </div>
+        </nav>
+
+        <div class="container detailContent">
+            <div class="text-center" id="imageDetail">
+                <figure class="figure">
+                    <img class="figure-img img-fluid rounded" src="{% static photo.get_source %}">
+                    <figcaption class="figure-caption">{{ photo.description }}</figcaption>
+                </figure>
+            </div>
+        </div>
+
+         <!-- Footer -->
+        <footer class="py-5 bg-light">
+          <div class="container">
+            <p class="m-0 text-center">Copyright &copy; X-Andra 2017</p>
+          </div>
+          <!-- /.container -->
+        </footer>
+
+        <script src="{% static 'gallery/js/jquery.min.js' %}"></script>
+        <script src="{% static 'gallery/js/popper.min.js' %}"></script>
+        <script src="{% static 'gallery/js/bootstrap.min.js' %}"></script>
+        <script src="{% static 'gallery/js/custom.js' %}"></script>
+    </body>
+</html>
